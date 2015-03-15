@@ -28,7 +28,7 @@ function signup() {
 			if (resp.success == 1){
 				var uid = resp.uid;
 				var username = resp.username;
-				window.location="data.html?uid=" + uid + "&username=" + username;
+				window.location="data.php?uid=" + uid + "&username=" + username;
 			}
 			else{
 				var t1 = document.createTextNode(resp.message);
@@ -67,7 +67,7 @@ function login(){
 			var resp = JSON.parse(xm.responseText);
 			if (resp.success == 1){
 				
-				window.location="data.php?username=";
+				window.location="data.php?username=" $resp.username + "&uid=" resp.uid;
 			}
 			else{
 				var t1 = document.createTextNode(resp.message);

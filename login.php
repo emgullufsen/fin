@@ -26,18 +26,21 @@ if(mysqli_connect_errno()){
 	echo "no";
 }
 
-$stmt = $mli->prepare("SELECT * FROM users Where username=? AND password=?");
+$stmt = $mli->prepare("SELECT id FROM users Where username=? AND password=?");
 
 $stringy = 'ericgullie';
 $pass = 'password';
 
 $stmt->bind_param("ss", $userr, $passs);
+$stmt->bind_result($idd);
 
 $stmt->execute();
 
 $stmt->store_result();
 
 if ($stmt->num_rows>0){
+	$resp1['uid'] = $idd;
+	$resp['username'] = $userr;
 	echo json_encode($resp1);
 }
 else {
