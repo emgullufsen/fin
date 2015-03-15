@@ -8,10 +8,12 @@
 		<h1>
 			Please Login To View Premier League Data
 		</h1>
+		<h2>Or, Sign Up <a href="signin.html">HERE!</a></h2>
 		<form id="login">
-			<span>Username: </span><input type="text" id="username"><br>
-			<span>Password: </span><input type="password" id="password"><br>
+			<span>Username: </span><input type="text" id="username"><span id="usernamewarning"></span><br>
+			<span>Password: </span><input type="password" id="password"><span id="passwordwarning"></span><br>
 			<input type="button" value="Login" onclick="login()"><br>
+			<div id="warn"></div>
 		</form>
 	</body>
 </html>

@@ -5,8 +5,10 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>data</title>
 </head>
-<body onload="usey()">
-	<h1>You Are logged in <span id="usey"></span></h1>
+<body>
+<?php
+	echo "<h1>You Are logged in $_REQUEST['username']";
+?>
 	<div id="favplayers"></div>
 </body>
 </html>
