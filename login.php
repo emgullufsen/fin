@@ -40,7 +40,7 @@ $stmt->store_result();
 
 if ($stmt->num_rows>0){
 	$resp1['uid'] = $idd;
-	$resp['username'] = $userr;
+	$resp1['username'] = $userr;
 	echo json_encode($resp1);
 }
 else {

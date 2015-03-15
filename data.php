@@ -7,7 +7,8 @@
 </head>
 <body>
 <?php
-	echo "<h1>You Are logged in $_REQUEST['username']";
+	$un = $_REQUEST['username'];
+	echo "<h1>You Are logged in $un </h1>";
 ?>
 	<div id="favplayers"></div>
 </body>

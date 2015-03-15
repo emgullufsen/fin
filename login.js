@@ -67,7 +67,7 @@ function login(){
 			var resp = JSON.parse(xm.responseText);
 			if (resp.success == 1){
 				
-				window.location="data.php?username=" $resp.username + "&uid=" + resp.uid;
+				window.location = "data.php?username=" + resp.username + "&uid=" + resp.uid;
 			}
 			else{
 				var t1 = document.createTextNode(resp.message);
