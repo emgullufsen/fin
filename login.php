@@ -38,11 +38,11 @@ $stmt->execute();
 $stmt->store_result();
 
 if ($stmt->num_rows>0){
-	echo $resp1;
+	echo json_encode($resp1);
 }
 else {
 	
-	echo $resp0;
+	echo json_encode($resp0);
 }
 $mli->close();
 ?>

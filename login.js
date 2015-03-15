@@ -1,12 +1,12 @@
 // Eric Gullufsen
 function signup() {
-	var un = document.getElementById("username");
+	var un = document.getElementById("username").value;
 	if (un == null){
 		var t = document.createTextNode("username is empty");
 		document.getElementById("usernamewarning").appendChild(t);
 	}
 	un = encodeURIComponent(un);
-	var pass = document.getElementById("password");
+	var pass = document.getElementById("password").value;
 	if (pass == null){
 		var t = document.createTextNode("password is empty");
 		document.getElementById("passwordwarning").appendChild(t);
@@ -28,7 +28,7 @@ function signup() {
 			if (resp.success == 1){
 				var uid = resp.uid;
 				var username = resp.username;
-				window.location="data.html?uid=" + uid + "&username=" username;
+				window.location="data.html?uid=" + uid + "&username=" + username;
 			}
 			else{
 				var t1 = document.createTextNode(resp.message);
@@ -40,13 +40,13 @@ function signup() {
 
 }
 function login(){
-	var un = document.getElementById("username");
+	var un = document.getElementById("username").value;
 	if (un == null){
 		var t = document.createTextNode("username is empty");
 		document.getElementById("usernamewarning").appendChild(t);
 	}
 	un = encodeURIComponent(un);
-	var pass = document.getElementById("password");
+	var pass = document.getElementById("password").value;
 	if (pass == null){
 		var t = document.createTextNode("password is empty");
 		document.getElementById("passwordwarning").appendChild(t);
@@ -67,7 +67,7 @@ function login(){
 			var resp = JSON.parse(xm.responseText);
 			if (resp.success == 1){
 				
-				window.location="data.html";
+				window.location="data.php?username=";
 			}
 			else{
 				var t1 = document.createTextNode(resp.message);
