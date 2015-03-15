@@ -31,10 +31,9 @@ $stmt = $mli->prepare("SELECT id FROM users Where username=? AND password=?");
 $stmt->bind_param("ss", $userr, $passs);
 $stmt->execute();
 $stmt->bind_result($idd);
+$stmt->fetch();
 
-$stmt->store_result();
-
-if ($stmt->num_rows>0){
+if (!is_null($idd)){
 	$resp1['uid'] = $idd;
 	$resp1['username'] = $userr;
 	echo json_encode($resp1);
