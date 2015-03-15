@@ -29,9 +29,8 @@ if(mysqli_connect_errno()){
 $stmt = $mli->prepare("SELECT id FROM users Where username=? AND password=?");
 
 $stmt->bind_param("ss", $userr, $passs);
-$stmt->bind_result($idd);
-
 $stmt->execute();
+$stmt->bind_result($idd);
 
 $stmt->store_result();
 
