@@ -52,6 +52,7 @@ function filterplayers(){
 			var respy = JSON.parse(w.responseText);
 			
 			var i = 0;
+			document.getElementById("filteredplayers").innerHTML = '';
 			while (respy[i]){
 				var play = respy[i];
 				var row = document.createElement("tr");
@@ -76,7 +77,6 @@ function filterplayers(){
 				td0.appendChild(text);
 				row.appendChild(td0);
 				row.appendChild(td1);
-				
 				document.getElementById("filteredplayers").appendChild(row);
 				
 				i++;	

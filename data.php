@@ -63,7 +63,7 @@ echo <<<HTM
 HTM;
 
 echo <<<HTM
-<h2>Select More Favorite Players:</h2>
+<h2>Select More Favorite Players (make a selection from the list to get started!):</h2>
 <select id="ddlplayers" onchange="filterplayers()">
 HTM;
 
