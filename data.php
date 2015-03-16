@@ -49,6 +49,23 @@ while($stmt2->fetch()){
 
 echo <<<HTM
 </table>
+HTM;
+
+echo <<<HTM
+<h2>Select More Favorite Players:</h2>
+<select id="ddlplayers" onchange="filterplayersbyteam()">
+HTM;
+
+$stmt3 = $m->prepare("SELECT `id`,`name` FROM teams");
+$stmt3->execute();
+$stmt3->bind_result($iddd, $namey);
+
+while($stmt3->fetch()){
+	echo "<option value=\"$iddd\">$namey</option>";
+}
+echo "</select><table id=\"filteredplayers\"></table>";
+
+echo <<<HTM
 </div>
 </body>
 </html>

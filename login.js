@@ -1,4 +1,88 @@
 // Eric Gullufsen
+function add(id){
+	var xmm1 = new XMLHttpRequest();
+	xmm1.open("POST","add.php?",true);
+	xmm.setRequestHeader('Content-type','application/x-www-form-urlencoded');
+	var paramy = "id=" + id;
+	xmm1.onreadystatechange = function(){
+		if (xmm1.readyState == 4){
+			var resp1 = JSON.parse(xmm1.responseText);
+			if (resp1.added == 1){
+				var row = document.createElement("tr");
+				var td0 = document.createElement("td");
+				var td1 = document.createElement("td");
+				var playername = resp1.name;
+				
+				var text = document.createTextNode(playername);
+				
+				var inp = document.createElement("input");
+				
+				var upid = resp1.upid;
+				row.setAttribute('id',upid);
+				
+				inp.setAttribute("type","button");
+				var onclick = "drop(" + upid + ")";
+				inp.setAttribute("onclick", onclick);
+				
+				td1.appendChild(inp);
+				td0.appendChild(text);
+				tr.appendChild(td0);
+				tr.appendChile(td1);
+				
+				document.getElementById("players").appendChild(tr);
+			
+			}
+		}
+	};
+	xmm1.send(paramy);
+}
+
+function filterplayers(){
+	var w = new XMLHttpRequest();
+	w.open("POST", "filter.php?",true);
+	w.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
+	var select = document.getElementById("ddlplayers");
+	var iddd = select.options[select.selectedIndex].value;
+	var parami = "id=" + iddd;
+	w.onreadystatechange = function(){
+		if (w.readyState == 4){
+			var respy = JSON.parse(w.responseText);
+			
+			var i = 0;
+			while (respy[i]){
+				var play = respy[i];
+				var row = document.createElement("tr");
+				var td0 = document.createElement("td");
+				var td1 = document.createElement("td");
+				var playername = play.name;
+				
+				var text = document.createTextNode(playername);
+				
+				var inp = document.createElement("input");
+				
+				var id = play.id;
+				row.setAttribute('id',id);
+				
+				inp.setAttribute("type","button");
+				var onclick = "add(" + upid + ")";
+				inp.setAttribute("onclick", onclick);
+				
+				td1.appendChild(inp);
+				td0.appendChild(text);
+				tr.appendChild(td0);
+				tr.appendChile(td1);
+				
+				document.getElementById("filteredplayers").appendChild(tr);
+				
+				
+			}
+			
+			
+		}
+	};
+	w.send(parami);
+}
+
 function drop(id){
 	
 	var xmm = new XMLHttpRequest();
