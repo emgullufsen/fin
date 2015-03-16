@@ -1,0 +1,45 @@
+.centerimages {
+	width: 800px;
+	height: auto;
+}
+
+body {
+	background-color: #E3AE57;
+}
+
+.head {
+	font-family: 'Gentium Book Basic';
+	border-radius: 8px;
+	background-color: #232B2B;
+	color: white;
+	padding: 15px;
+	font-size: xx-large;
+}
+
+.explain {
+	font-family: 'Gentium Book Basic';
+	border-top: solid #232B2B 3px;
+	border-bottom: solid #232B2B 3px;
+	padding: 15px;
+	font-size: x-large;
+}
+
+#bigimage {
+	width: 90%;
+	height: auto;
+}
+
+.ss0 {
+	width: 30%;
+	height: auto;
+}
+
+.smallpic {
+	height: auto;
+	width: 22%;
+}
+
+.bpl {
+	width: 30%;
+	height: auto;
+}

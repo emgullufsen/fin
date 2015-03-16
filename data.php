@@ -5,12 +5,22 @@ echo <<<HTM
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
+<link rel="stylesheet" type="text/css" href="howto.css">
+<link href='http://fonts.googleapis.com/css?family=Old+Standard+TT:700' rel='stylesheet' type='text/css'>
+<link href='http://fonts.googleapis.com/css?family=Gentium+Book+Basic' rel='stylesheet' type='text/css'>
+<link href='http://fonts.googleapis.com/css?family=Gravitas+One' rel='stylesheet' type='text/css'>
+<link href='http://fonts.googleapis.com/css?family=Abril+Fatface' rel='stylesheet' type='text/css'>
 <script type="text/javascript" src="login.js"></script>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>data</title>
 </head>
 <body>
 <h1>You Are logged in $un <span id="suid"> $uid</span></h1>
+<img id="bpl1" class="bpl" src="barclays-premier-leaue-clubs-logo1rs.jpg">
+
+<img id="bpl1" class="bpl" src="barclays-premier-leaue-clubs-logo2rs.jpg">
+
+<img id="bpl1" class="bpl" src="barclays-premier-leaue-clubs-logo4rs.jpg">
 <h2>Here are your favorite teams: </h2>
 <div id="favplayers">
 <table>
