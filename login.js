@@ -4,14 +4,16 @@ function drop(id){
 	var xmm = new XMLHttpRequest();
 	var params = "id=" + id;
 	var urll = "drop.php?";
-	xmm.setRequestHeader('Content-type','application/x-www-form-urlencoded');
 	xmm.open("POST",urll, true);
+	xmm.setRequestHeader('Content-type','application/x-www-form-urlencoded');
 	xmm.onreadystatechange = function(){
+	if(xmm.readyState == 4){
+		var resp = JSON.parse(xmm.responseText);
 		if (resp.dropped == 1){
 			
-			document.getElementById("players").removeChild(id.toString());
+			document.getElementById(id.toString()).parentElement.removeChild(document.getElementById(id.toString()));
 			
-		}
+		}}
 	};
 	
 	xmm.send(params);
