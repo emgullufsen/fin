@@ -3,7 +3,9 @@ function add(id){
 	var xmm1 = new XMLHttpRequest();
 	xmm1.open("POST","add.php?",true);
 	xmm1.setRequestHeader('Content-type','application/x-www-form-urlencoded');
-	var paramy = "id=" + id;
+	var uid = document.getElementById("suid").innerHTML;
+	uid = parseInt(uid);
+	var paramy = "id=" + id + "&suid=" + suid;
 	xmm1.onreadystatechange = function(){
 		if (xmm1.readyState == 4){
 			var resp1 = JSON.parse(xmm1.responseText);
@@ -11,13 +13,13 @@ function add(id){
 				var row = document.createElement("tr");
 				var td0 = document.createElement("td");
 				var td1 = document.createElement("td");
-				var playername = resp1.name;
+				var playername = document.getElementById(id.toString()).value;
 				
 				var text = document.createTextNode(playername);
 				
 				var inp = document.createElement("input");
 				
-				var upid = resp1.upid;
+				var upid = id;
 				row.setAttribute('id',upid);
 				
 				inp.setAttribute("type","button");
@@ -53,6 +55,7 @@ function filterplayers(){
 				var play = respy[i];
 				var row = document.createElement("tr");
 				var td0 = document.createElement("td");
+				td0.setAttribute("id", id.toSting());
 				var td1 = document.createElement("td");
 				var playername = play.name;
 				
@@ -64,6 +67,7 @@ function filterplayers(){
 				row.setAttribute('id',id);
 				
 				inp.setAttribute("type","button");
+				inp.setAttribute("value", "add player");
 				var onclick = "add(" + id + ")";
 				inp.setAttribute("onclick", onclick);
 				

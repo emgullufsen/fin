@@ -1,5 +1,6 @@
 <?php
 $un = $_REQUEST['username'];
+$uid = $_REQUEST['uid'];
 echo <<<HTM
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
@@ -9,7 +10,7 @@ echo <<<HTM
 <title>data</title>
 </head>
 <body>
-<h1>You Are logged in $un </h1>
+<h1>You Are logged in $un <span id="suid"> $uid</span></h1>
 <h2>Here are your favorite teams: </h2>
 <div id="favplayers">
 <table>
@@ -18,7 +19,7 @@ $lh = 'oniddb.cws.oregonstate.edu';
 $un = 'gullufse-db';
 $p = 'eXVI6J83NBdQ5EiB';
 $db = 'gullufse-db';
-$uid = $_REQUEST['uid'];
+
 $m = new mysqli($lh, $un, $p, $db);
 if(mysqli_connect_errno()){
 	echo "<tr>heyhey</tr>";
