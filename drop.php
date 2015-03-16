@@ -1,6 +1,6 @@
 <?php
 $id = $_REQUEST['id'];
-
+$id = intval($id);
 $lh = 'oniddb.cws.oregonstate.edu';
 $un = 'gullufse-db';
 $p = 'eXVI6J83NBdQ5EiB';
@@ -8,7 +8,7 @@ $db = 'gullufse-db';
 
 $mm = new mysqli($lh,$un,$p,$db);
 
-$stmtt = $mm->prepare("DELETE FROM usersplayers WHERE id=?");
+$stmtt = $mm->prepare("DELETE FROM usersplayers WHERE pid=?");
 
 $stmtt->bind_param("i", $id);
 

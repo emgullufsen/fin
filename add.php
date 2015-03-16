@@ -20,7 +20,7 @@ $s->execute();
 $s->store_result();
 
 if ($s->affected_rows){
-	echo json_encode(array('resp' => 1));
+	echo json_encode(array('added' => 1));
 }
 
 ?>

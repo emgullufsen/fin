@@ -5,7 +5,7 @@ function add(id){
 	xmm1.setRequestHeader('Content-type','application/x-www-form-urlencoded');
 	var uid = document.getElementById("suid").innerHTML;
 	uid = parseInt(uid);
-	var paramy = "id=" + id + "&suid=" + suid;
+	var paramy = "id=" + id + "&suid=" + uid;
 	xmm1.onreadystatechange = function(){
 		if (xmm1.readyState == 4){
 			var resp1 = JSON.parse(xmm1.responseText);
@@ -13,7 +13,7 @@ function add(id){
 				var row = document.createElement("tr");
 				var td0 = document.createElement("td");
 				var td1 = document.createElement("td");
-				var playername = document.getElementById(id.toString()).value;
+				var playername = document.getElementById(id.toString()).textContent;
 				
 				var text = document.createTextNode(playername);
 				
@@ -25,13 +25,14 @@ function add(id){
 				inp.setAttribute("type","button");
 				var onclick = "drop(" + upid + ")";
 				inp.setAttribute("onclick", onclick);
+				inp.setAttribute("value", "drop player");
 				
 				td1.appendChild(inp);
 				td0.appendChild(text);
-				tr.appendChild(td0);
-				tr.appendChile(td1);
+				row.appendChild(td0);
+				row.appendChild(td1);
 				
-				document.getElementById("players").appendChild(tr);
+				document.getElementById("players").appendChild(row);
 			
 			}
 		}
@@ -55,7 +56,7 @@ function filterplayers(){
 				var play = respy[i];
 				var row = document.createElement("tr");
 				var td0 = document.createElement("td");
-				td0.setAttribute("id", id.toSting());
+				td0.setAttribute("id", play.id.toString());
 				var td1 = document.createElement("td");
 				var playername = play.name;
 				
