@@ -1,3 +1,5 @@
+#! php-cgi
+
 <?php
 
 $resp1 = array('success' => 1);
@@ -26,8 +28,6 @@ if(mysqli_connect_errno()){
 
 $stmt = $mli->prepare("INSERT INTO users (`username`,`password`) VALUES (?, ?)");
 
-$stringy = 'ericgullie';
-$pass = 'password';
 
 $stmt->bind_param("ss", $userr, $passs);
 
@@ -35,17 +35,14 @@ $stmt->execute();
 
 $stmt->store_result();
 
-if ($stmt->num_rows>0){
-	$stmt2 = $mli->prepare("SELECT id FROM users WHERE `username`=?");
-	$stmt2->bind_param("s", $userr);
-	$stmt2->bind_result($r);
-	$resp1['uid'] = $r;
+if ($stmt->affected_rows > 0){
+	$resp1['uid'] = mysqli_insert_id($mli); 
 	$resp1['username'] = $userr;
 	echo json_encode($resp1);
 }
 else {
 
-	echo $resp0;
+	echo (json_encode($resp0));
 }
 $mli->close();
 

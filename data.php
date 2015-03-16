@@ -1,5 +1,4 @@
 <?php
-include 'info.php';
 $un = $_REQUEST['username'];
 echo <<<HTM
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
@@ -14,9 +13,15 @@ echo <<<HTM
 <div id="favplayers">
 <table>
 HTM;
-
+$lh = 'oniddb.cws.oregonstate.edu';
+$un = 'gullufse-db';
+$p = 'eXVI6J83NBdQ5EiB';
+$db = 'gullufse-db';
 $uid = $_REQUEST['uid'];
-$m = new mysqli($lh, $un, $pass, $db);
+$m = new mysqli($lh, $un, $p, $db);
+if(mysqli_connect_errno()){
+	echo "<tr>heyhey</tr>";
+}
 $stmt = $m->prepare("SELECT `name` FROM teams t INNER JOIN usersteams ut ON t.`id` = ut.tid WHERE ut.uid = ?");
 $stmt->bind_param("i", $uid);
 $stmt->execute();
