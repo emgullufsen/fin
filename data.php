@@ -53,7 +53,7 @@ HTM;
 
 echo <<<HTM
 <h2>Select More Favorite Players:</h2>
-<select id="ddlplayers" onchange="filterplayersbyteam()">
+<select id="ddlplayers" onchange="filterplayers()">
 HTM;
 
 $stmt3 = $m->prepare("SELECT `id`,`name` FROM teams");

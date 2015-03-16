@@ -2,7 +2,7 @@
 function add(id){
 	var xmm1 = new XMLHttpRequest();
 	xmm1.open("POST","add.php?",true);
-	xmm.setRequestHeader('Content-type','application/x-www-form-urlencoded');
+	xmm1.setRequestHeader('Content-type','application/x-www-form-urlencoded');
 	var paramy = "id=" + id;
 	xmm1.onreadystatechange = function(){
 		if (xmm1.readyState == 4){
@@ -39,7 +39,7 @@ function add(id){
 
 function filterplayers(){
 	var w = new XMLHttpRequest();
-	w.open("POST", "filter.php?",true);
+	w.open("POST", "filterplayers.php",true);
 	w.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
 	var select = document.getElementById("ddlplayers");
 	var iddd = select.options[select.selectedIndex].value;
@@ -64,17 +64,17 @@ function filterplayers(){
 				row.setAttribute('id',id);
 				
 				inp.setAttribute("type","button");
-				var onclick = "add(" + upid + ")";
+				var onclick = "add(" + id + ")";
 				inp.setAttribute("onclick", onclick);
 				
 				td1.appendChild(inp);
 				td0.appendChild(text);
-				tr.appendChild(td0);
-				tr.appendChile(td1);
+				row.appendChild(td0);
+				row.appendChild(td1);
 				
-				document.getElementById("filteredplayers").appendChild(tr);
+				document.getElementById("filteredplayers").appendChild(row);
 				
-				
+				i++;	
 			}
 			
 			
