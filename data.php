@@ -10,6 +10,7 @@ echo <<<HTM
 </head>
 <body>
 <h1>You Are logged in $un </h1>
+<h2>Here are your favorite teams: </h2>
 <div id="favplayers">
 <table>
 HTM;
@@ -26,9 +27,26 @@ $stmt = $m->prepare("SELECT `name` FROM teams t INNER JOIN usersteams ut ON t.`i
 $stmt->bind_param("i", $uid);
 $stmt->execute();
 $stmt->bind_result($llamo);
+
 while($stmt->fetch()){
 	echo "<tr><td>" . $llamo . "</td></tr>";
 }
+
+echo <<<HTM
+</table>
+<h2>And here are your favorite players</h2>
+<table id="players">
+HTM;
+
+$stmt2 = $m->prepare("SELECT `name`, up.id FROM players p INNER JOIN usersplayers up ON p.`id` = up.pid WHERE up.uid = ?");
+$stmt2->bind_param("i", $uid);
+$stmt2->execute();
+$stmt2->bind_result($llamo2, $upid);
+
+while($stmt2->fetch()){
+	echo "<tr id=\"$upid\"><td>" . $llamo2 . "</td><td><input type=\"button\" value=\"drop\" onclick=\"drop($upid)\"</td></tr>";
+}
+
 echo <<<HTM
 </table>
 </div>

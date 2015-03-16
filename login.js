@@ -1,4 +1,22 @@
 // Eric Gullufsen
+function drop(id){
+	
+	var xmm = new XMLHttpRequest();
+	var params = "id=" + id;
+	var urll = "drop.php?";
+	xmm.setRequestHeader('Content-type','application/x-www-form-urlencoded');
+	xmm.open("POST",urll, true);
+	xmm.onreadystatechange = function(){
+		if (resp.dropped == 1){
+			
+			document.getElementById("players").removeChild(id.toString());
+			
+		}
+	};
+	
+	xmm.send(params);
+	
+}
 function signup() {
 	var un = document.getElementById("username").value;
 	if (un == null){
